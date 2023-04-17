@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom";
 import Authentication from "services/Authentication/Authentication";
 import { toast } from "react-toastify";
 
-export const JobView = ({ data }) => {
-    console.log(data)
+export default function JobView({ data }) {
+    // console.log(data)
     const navigate = useNavigate();
     const [companyLogo, setCompanyLogo] = useState(data.company.companyLogo);
     const [isSavedJobVariable, setIsSavedJobVariable] = useState(false);
@@ -60,7 +60,7 @@ export const JobView = ({ data }) => {
             <div className="items-stretch">
                 <div className="flex flex-row space-x-3 items-center">
                     {/* LogoCompany */}
-                    <img onClick={handlerClickViewJobDetail} className="cursor-pointer rounded-md w-10 h-10" src={companyLogo} alt={logoJobFinder} />
+                    <img onClick={handlerClickViewJobDetail} className="cursor-pointer rounded-md w-10 h-10" src={companyLogo} alt=""/>
 
                     <div onClick={handlerClickViewJobDetail} className="space-y-1.5 cursor-pointer">
                         <label className="text-[1.1rem] line-clamp-1 cursor-pointer">{data.jobTitle}</label>
@@ -100,4 +100,3 @@ export const JobView = ({ data }) => {
         </div>
     );
 }
-export default JobView;

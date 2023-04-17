@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-import Header from "../../components/layouts/header/Header";
-import Footer from "../../components/layouts/footer/Footer";
+import config from '../../config.json'
 import JobView from "../../components/componentCustom/JobView";
 import CompanyView from "../../components/componentCustom/CompanyView";
 import Authentication from "services/Authentication/Authentication";
@@ -15,6 +13,9 @@ import {
 
 import "./CandidateHome.css";
 import LogoJobFinder from "../../assets/image/candidates/LogoJobFinder.png";
+import { Pagination } from "@mui/material";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export const CandidateHome = () => {
     const [filterKey, setFilterKey] = useState({
@@ -24,13 +25,12 @@ export const CandidateHome = () => {
     });
 
     const [listMajor, setListMajor] = useState([]);
-
     const [listJob, setListJob] = useState([]);
-
     const [listCompany, setListCompany] = useState([]);
-
     const [listAddressJob, setListAddressJob] = useState([]);
     const userData = Authentication.getCurrentUser()
+    const [page, setPage] = useState(1)
+    const [totalPage, setTotalPage] = useState(1)
 
     useEffect(() => {
         if (filterKey.jobTitle || filterKey.major || filterKey.workingForm) {
@@ -42,9 +42,14 @@ export const CandidateHome = () => {
 
     useEffect(() => {
         if (!filterKey.jobTitle && !filterKey.major && !filterKey.workingForm) {
-            getListJobDefault().then((data) => {
+            axios({
+                method: "get", //you can set what request you want to be
+                url: `${config.server.domain}/job?page=${page - 1}&perPage=10`,
+            }).then((response) => {
+                console.log(response)
+                let data = response.data.elements;
+                setTotalPage(response.data.page.totalPage)
                 setListJob(data);
-
                 let uniqueAddress = [];
                 listJob.map((item) => {
                     if (uniqueAddress.indexOf(item.jobAddress.province) == -1) {
@@ -52,18 +57,10 @@ export const CandidateHome = () => {
                     }
                 });
                 setListAddressJob(uniqueAddress);
-            });
+            }).catch((err) => {
+                toast.error("Có lỗi xảy ra")
+            })
         }
-
-        getListJobDefault().then((data) => {
-            let uniqueAddress = [];
-            data.map((item) => {
-                if (uniqueAddress.indexOf(item.jobAddress.province) == -1) {
-                    uniqueAddress.push(item.jobAddress.province);
-                }
-            });
-            setListAddressJob(uniqueAddress);
-        });
 
         getListMajor().then((data) => {
             setListMajor(data);
@@ -72,7 +69,7 @@ export const CandidateHome = () => {
         getListCompanyDefault().then((data) => {
             setListCompany(data);
         });
-    }, [filterKey]);
+    }, [filterKey, page]);
 
     const handleChangeWorkingForm = (sender) => {
         let cloneFilterKey = { ...filterKey };
@@ -249,15 +246,25 @@ export const CandidateHome = () => {
                             <div></div>
                         </div>
                     </div>
-                    <div className="space-y-3">
+                    <div className="space-y-3 flex flex-col">
                         {/* ListJob */}
                         {listJob.length > 0 ? (
-                            listJob.map((item, index) => <JobView data={item}></JobView>)
+                            listJob.map((item, index) => <JobView key={item.id} data={item} />)
                         ) : (
                             <div className="font-bold p-5 bg-white text-center text-common_color rounded-xl">
                                 Không có công việc nào phù hợp!
                             </div>
                         )}
+                        {
+                            listJob.length != 0 && 
+                            <div className="self-center my-4">
+                                <Pagination page={page} onSelect={(e) => {
+                                    console.log(e)
+                                }} onChange={(e, value) => {
+                                    setPage(value)
+                                }} count={totalPage} shape="rounded" />
+                            </div>
+                        }
                     </div>
                 </div>
 

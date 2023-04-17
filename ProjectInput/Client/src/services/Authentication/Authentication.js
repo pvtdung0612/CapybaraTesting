@@ -96,7 +96,7 @@ class Authentication {
         return new Promise((resolve, reject) => {
             axios({
                 method: "POST",
-                url: `${config.server.domain}/login`,
+                url: `${config.server.domain}/auth/login`,
                 headers: {
                     "Content-Type": "application/json;charset=UTF-8",
                 },
@@ -105,8 +105,8 @@ class Authentication {
                     password: password,
                 }
             }).then((response) => {
-                let authToken = response.data.accessToken;
-                let tokenType = response.data.tokenType;
+                let authToken = response.data.token.accessToken;
+                let tokenType = response.data.token.tokenType;
                 if (
                     authToken === undefined ||
                     authToken == null ||

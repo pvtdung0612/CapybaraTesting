@@ -91,7 +91,7 @@ export default function Posts() {
               isPressedActive ? activePosts.length : closedPosts.length
             }`}
           </h1> */}
-                    <div className=" overflow-y-scroll h-3/4 scrollbar-hide flex flex-col gap-5">
+                    <div className="relative overflow-y-scroll h-3/4 scrollbar-hide flex flex-col gap-5">
                         {isPressedActive && (
                             <div>
                                 {activePosts
@@ -103,13 +103,16 @@ export default function Posts() {
                                             </div>
                                         );
                                     })}
-                                <div className="absolute right-8 bottom-4">
-                                    <Pagination
-                                        totalPosts={activePosts.length}
-                                        setCurrentPage={setCurrentPage}
-                                        currentPage={currentPage}
-                                    />
+                                <div className="mt-4 flex items-end justify-end">
+                                    <div className="inline-block">
+                                        <Pagination
+                                            totalPosts={activePosts.length}
+                                            setCurrentPage={setCurrentPage}
+                                            currentPage={currentPage}
+                                        />
+                                    </div>
                                 </div>
+                                
                             </div>
                         )}
                         {isPressedClosed &&

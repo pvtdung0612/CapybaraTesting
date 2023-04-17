@@ -1,7 +1,7 @@
 import axios from "axios";
 import SelectionList from "components/company/SelectionList";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Authentication from "services/Authentication/Authentication";
 
@@ -9,6 +9,8 @@ const { default: Dashboard } = require("components/company/Dashboard");
 const { default: React, useEffect, useState } = require("react");
 
 function EditPost() {
+    const navigate = useNavigate()
+
     const sexList = ["Không yêu cầu", "Nam", "Nữ"];
     const majorList = ["Information Technology", "Sale", "Accountant", "Medical"];
     const requireExperienceList = [
@@ -95,10 +97,11 @@ function EditPost() {
             },
         })
             .then((res) => {
-                console.log(res);
+                toast.success("Cập nhập thành công.")
+                navigate(`/company/post/${jobId}`, { state: { id: jobId } })
             })
             .catch((err) => {
-                console.log(err);
+                toast.success("Có lỗi xảy ra.")
             });
     };
     // };

@@ -13,6 +13,7 @@ function CandidatesPerPost({ route, navigation }) {
     const [waitingApplications, setWaitingApplications] = useState([]);
     const [acceptedApplications, setAcceptedApplications] = useState([]);
     const [rejectedApplications, setRejectedApplications] = useState([]);
+    const [reload, setReload] = useState(false)
 
     const [activeOption, setActiveOption] = useState("Waiting");
 
@@ -66,7 +67,7 @@ function CandidatesPerPost({ route, navigation }) {
             .catch((err) => {
                 console.log(err);
             });
-    }, [activeOption]);
+    }, [activeOption, reload]);
 
     return (
         <Dashboard>
@@ -131,8 +132,8 @@ function CandidatesPerPost({ route, navigation }) {
                                     candidate={application.candidate}
                                     activeOption={activeOption}
                                     application={application}
-                                    reload={false}
-                                    setReload={() => {}}
+                                    reload={reload}
+                                    setReload={setReload}
                                 />
                             );
                         })}

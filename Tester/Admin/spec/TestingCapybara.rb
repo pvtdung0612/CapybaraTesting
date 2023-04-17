@@ -12,7 +12,6 @@ RSpec.describe 'Candidates', type: :system do
     scenario "- Testcase 1: Sửa tài khoản thành công" do
       user = User.create(first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com')
       visit edit_user_path(user)
-      puts "this is test"
       puts user
       within("form") do
         fill_in 'First name', with: 'Jane'

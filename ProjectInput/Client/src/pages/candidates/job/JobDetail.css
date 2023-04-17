@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500&display=swap');
+
+.text-BeVietnamPro {
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+.text-Poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.labelItem {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.pItem {
+  font-weight: normal;
+  font-size: 0.8rem;
+}

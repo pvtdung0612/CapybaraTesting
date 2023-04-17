@@ -23,6 +23,20 @@ Job Finder là ứng dụng web dùng để tìm kiếm công việc cho ứng v
 
 <a name="settingProjectInput"></a>
 ### Cài đặt
+#### Tài khoản
+- Company
+```
+"email": "20020390@vnu.edu.vn",
+"password": "12345678",
+"role": "Company"
+```
+- Candidates
+```
+"email": "nguyendanghoangdao2002@gmail.com",
+"password": "12345678",
+"role": "Candidate"
+```
+
 #### Cơ sở dữ liệu
 Cần cài đặt và chạy môi trường SQL. Dữ liệu đã được backend tạo tự động
 

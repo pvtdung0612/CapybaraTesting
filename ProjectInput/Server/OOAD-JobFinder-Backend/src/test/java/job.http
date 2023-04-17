@@ -1,0 +1,51 @@
+### Create job
+POST http://localhost:5000/api/job
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjgwNzExNTEwLCJleHAiOjE2ODEzMTYzMTB9.bKasrEyS8DQm2h1dXXrjtKEAZY-n6N_kfw4VWD7utm6-en7uhieqtvaet-jCpbv_X4qQWUi2bXMbTORgxalC-w
+
+{
+  "jobTitle" : "Lập trình viên Android",
+  "jobDescription" : "Lập trình ứng dụng cho Android",
+  "jobAddress" : {
+    "province" : "Ha Noi"
+  },
+  "major" : "Information Technology",
+  "salary" : "5 triệu",
+  "numberOfHiring" : 10,
+  "requireExperience" : "6 tháng",
+  "sex" : "Nam",
+  "workingForm" : "Full-time",
+  "closeDate" : "2023-04-28"
+}
+
+### Update job
+PUT http://localhost:5000/api/job
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5IiwiaWF0IjoxNjc5MzI0MDA4LCJleHAiOjE2Nzk5Mjg4MDh9.903xQJcw98ITqHGluPqSJuqbz0J3xRA1msgoTE6zHLPgw91Nl7EF1mlhZJiDXoZSKV12H3lz8WZpNgUN9PbMhw
+
+{
+  "id" : 13,
+  "jobTitle" : "Lập trình viên Android Fake",
+  "jobDescription" : "Lập trình ứng dụng cho Android",
+  "jobAddress" : "Hà Nội",
+  "major" : "Information Technology",
+  "salary" : "5 triệu",
+  "numberOfHiring" : 10,
+  "requireExperience" : "6 tháng",
+  "sex" : "Nam",
+  "workingForm" : "Full-time"
+}
+
+### Get job
+GET http://localhost:5000/api/job/13
+
+### List job
+GET http://localhost:5000/api/job?jobTitle=ap
+
+### Delete job
+DELETE http://localhost:5000/api/job/13
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5IiwiaWF0IjoxNjc5MzI0MDA4LCJleHAiOjE2Nzk5Mjg4MDh9.903xQJcw98ITqHGluPqSJuqbz0J3xRA1msgoTE6zHLPgw91Nl7EF1mlhZJiDXoZSKV12H3lz8WZpNgUN9PbMhw
+
+### Count open job by company
+GET http://localhost:5000/api/job/count?companyId=9
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5IiwiaWF0IjoxNjc5MzI0MDA4LCJleHAiOjE2Nzk5Mjg4MDh9.903xQJcw98ITqHGluPqSJuqbz0J3xRA1msgoTE6zHLPgw91Nl7EF1mlhZJiDXoZSKV12H3lz8WZpNgUN9PbMhw

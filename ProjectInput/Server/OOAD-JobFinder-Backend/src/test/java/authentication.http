@@ -1,0 +1,48 @@
+### Login as Company
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+  "email" : "20020390@vnu.edu.vn",
+  "password" : "abcdefgh"
+}
+
+### Login as Admin
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+  "email" : "admin@jobfinder.com",
+  "password" : "12345678"
+}
+
+### Login as Candidate
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+  "email" : "nguyendanghoangdao2002@gmail.com",
+  "password" : "12345678"
+}
+
+### Confirm user
+POST http://localhost:5000/api/register/confirm
+Content-Type: application/json
+
+{
+  "email" : "nguyendanghoangdao11a@gmail.com",
+  "confirmationKey" : "862235"
+}
+
+### Send email confirmation
+GET http://localhost:5000/api/register/confirm/resend?email=nguyendanghoangdao11a@gmail.com
+
+### Change password
+PUT http://localhost:5000/api/password/change
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjgwOTY2NTE1LCJleHAiOjE2ODE1NzEzMTV9.2giO8oFYHFOPHqV8HdVAVu_ljAyfUrCKa5vNh32OQv8FHiZOVqOxznkOS481eDfZ9rzz5Cthz9gpJxDXWWaHwQ
+Content-Type: application/json
+
+{
+  "oldPassword": "12345678",
+  "newPassword": "abcdefgh"
+}

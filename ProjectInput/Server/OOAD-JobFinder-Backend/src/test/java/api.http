@@ -1,0 +1,184 @@
+### Login
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+  "email" : "20020390@vnu.edu.vn",
+  "password" : "12345678"
+}
+
+<> 2023-03-06T212618.400.json
+
+### Create user
+POST http://localhost:5000/api/register
+Content-Type: application/json
+
+{
+  "email" : "20020390@gmail.com",
+  "password" : "12345678",
+  "role" : "Company"
+}
+
+### Confirm user
+POST http://localhost:5000/api/register/confirm
+Content-Type: application/json
+
+{
+  "email" : "nguyendanghoangdao11a@gmail.com",
+  "confirmationKey" : "666770"
+}
+
+### Send email confirmation
+GET http://localhost:5000/api/register/confirm/resend?email=20020390@vnu.edu.vn
+
+### Get company
+GET http://localhost:5000/api/company/4
+
+### Update company
+PUT http://localhost:5000/api/company
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0IiwiaWF0IjoxNjc4ODg2MjI1LCJleHAiOjE2Nzk0OTEwMjV9.niL5C7Tq_J41n7nNn4R_bVR0_TfNh6rm3esAqj007I6sR7Ja--33i-PUuyK7njooCBUzPHlBCSHFzR-YuZ-Quw
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="companyName"
+Content-Type: text/plain
+
+Misa
+--boundary
+Content-Disposition: form-data; name="companyDescription"
+Content-Type: text/plain
+
+A good company
+--boundary
+Content-Disposition: form-data; name="numberOfEmployee"
+Content-Type: text/plain
+
+200+
+--boundary
+Content-Disposition: form-data; name="companyLogoFile"; filename="2.png"
+
+< D:\2.png
+--boundary
+Content-Disposition: form-data; name="address" filename="blob"
+Content-Type: text/json
+
+ewogICJwcm92aW5jZSIgOiAiSMOgIE7hu5lpIgp9
+--boundary--
+
+### Update
+PUT http://localhost:5000/api/candidate
+Content-Type: multipart/form-data; boundary=boundary
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5IiwiaWF0IjoxNjc5Mjc2MzI2LCJleHAiOjE2Nzk4ODExMjZ9.duJJAtXbGqjncwQBNc6JeojAvbFbsrQ4hb3LjtMAZa4jhBmPw2D5NlhU-8k9m2ZEp0AsqinASROpc9sVFXteSA
+
+--boundary
+Content-Disposition: form-data; name="candidateAvatarFile" filename="2.png"
+
+< D:/2.png
+--boundary
+Content-Disposition: form-date; name="fullName"
+Content-Type: text/plain
+
+Hello
+--boundary--
+
+### Update candidate
+PUT http://localhost:5000/api/candidate
+Content-Type: multipart/form-data; boundary=boundary
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0IiwiaWF0IjoxNjc5MTUyODU0LCJleHAiOjE2Nzk3NTc2NTR9.-uQ7cpiiOVIlUnSv42hlTvCXQoU94DyNm64ASlKrJG_0A1DPEarbNJ1jlmmaDw5F4-Ram6GlP8g4Iw9SPZiqiQ
+
+--boundary
+Content-Disposition: form-data; name="candidateAvatarFile" filename="2.png"
+
+< D:/2.png
+--boundary
+Content-Disposition: form-data; name="fullName"
+Content-Type: text/plain
+
+Nguyễn Văn A
+--boundary
+Content-Disposition: form-data; name="sex"
+Content-Type: text/plain
+
+Nam
+--boundary
+Content-Disposition: form-data; name="dateOfBirth"
+Content-Type: text/plain
+
+2002-02-19
+--boundary
+Content-Disposition: form-data; name="contactEmail"
+Content-Type: text/plain
+
+20020390@vnu.edu.vn
+--boundary
+Content-Disposition: form-data; name="phoneNumber"
+Content-Type: text/plain
+
+0325135251
+--boundary
+Content-Disposition: form-data; name="selfDescription"
+Content-Type: text/plain
+
+I'm studying at University of Technology and Engineering.
+I'm on my third year.
+--boundary
+Content-Disposition: form-data; name="experience"
+Content-Type: text/plain
+
+I have 1 year experience in IT.
+--boundary
+Content-Disposition: form-data; name="education"
+Content-Type: text/plain
+
+University
+--boundary--
+
+### Create job
+POST http://localhost:5000/api/job/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0IiwiaWF0IjoxNjc4Njk3Nzg4LCJleHAiOjE2NzkzMDI1ODh9.fOgrkEmI14DGuzpeFdNYNZtQWiAU_fNEY3jC6XAbfxRdYwtxE21NYIUW6aHA6I86MT-raV92PYEkuKF6Igkw-w
+
+{
+  "jobTitle" : "Lập trình viên Android",
+  "jobDescription" : "Lập trình ứng dụng cho Android",
+  "jobAddress" : "Hà Nội",
+  "major" : "Information Technology",
+  "salary" : "5 triệu",
+  "numberOfHiring" : 10,
+  "requireExperience" : "6 tháng",
+  "sex" : "Nam",
+  "workingForm" : "Fulltime"
+}
+
+### Update job
+PUT http://localhost:5000/api/job/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0IiwiaWF0IjoxNjc4NzgxNzY1LCJleHAiOjE2NzkzODY1NjV9.elQHPr2g7XdQ4ycjx2uiCvp7XrGacmXx2FwQFMwI9SIH-f5F5wqKVqs3mPo1wlXsbGBZIRNtlQPz_GVXDSOaOw
+
+{
+  "id" : 7,
+  "jobTitle" : "Lập trình viên Android",
+  "jobDescription" : "Lập trình ứng dụng cho Android",
+  "jobAddress" : "Hà Nội",
+  "major" : "Information Technology",
+  "salary" : "5 triệu",
+  "numberOfHiring" : 10,
+  "requireExperience" : "6 tháng",
+  "sex" : "Nam",
+  "workingForm" : "Fulltime"
+}
+
+### Upload file
+POST http://localhost:5000/api/test
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="2.png"
+
+< D:\2.png
+
+### List company
+GET http://localhost:5000/api/company
+
+<> 2023-03-06T212754.200.json
+<> 2023-03-06T212740.400.json

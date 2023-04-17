@@ -48,9 +48,11 @@ Chạy chương trình
 npm start
 ```
 
+<a name="testing"></a>
 ## 2. Kiểm thử
 Kiểm thử usecase của 4 actor chính gồm Admin, Vistor, Candidate, Company
 
+<a name="implementTesting"></a>
 ### Cài đặt
 Cài đặt môi trường [ruby](#https://www.ruby-lang.org/vi/downloads/)
 
@@ -90,7 +92,7 @@ Cài đặt rspec cho chương trình
 ```
 rails g rspec:install
 ```
-
+<a name="exampleCodeTesting"></a>
 ### Code ví dụ
 ```
 require 'rails_helper'
@@ -122,4 +124,9 @@ end
 Chạy file test
 ```
 rspec spec/[fileName]
+```
+<a name="formatOutputTesting"></a>
+### Mẫu Output
+```
+Candidates - Đăng nhập - Testcase 1: Sửa tài khoản thành công
 ```

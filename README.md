@@ -38,7 +38,20 @@ Job Finder là ứng dụng web dùng để tìm kiếm công việc cho ứng v
 ```
 
 #### Cơ sở dữ liệu
-Cần cài đặt và chạy môi trường SQL. Dữ liệu đã được backend tạo tự động
+1. Tạo một cơ sở dữ liệu mới (đặt tên tùy ý)
+2. Tạo file `application-local.properties` trong đường dẫn `src/main/resources` với nội dung. Trong đó `server_upload_path` là đường dẫn đến thư mục để lưu file của server (Tạo một thư mục trống ở đâu đó và ghi đường dẫn vào)
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/<database_name>
+spring.datasource.username=<mysql_username>
+spring.datasource.password=<mysql_password>
+upload.path=<server_upload_path>
+```
+Ví dụ
+````
+spring.datasource.url=jdbc:mysql://localhost:3306/jobfinder
+spring.datasource.username=root
+spring.datasource.password=12345
+````
 
 #### Backend
 Vào Server

@@ -75,7 +75,8 @@ function CandidateDetail() {
   } = useForm();
 
   const onSubmit = (data) => {
-    // console.log(data);
+    console.log(data);
+    console.log(selectedDate.month)
     const formData = new FormData();
     formData.append("fullName", data.fullName);
     formData.append("sex", data.sex);
@@ -83,7 +84,7 @@ function CandidateDetail() {
     formData.append("contactEmail", data.contactEmail);
     formData.append("phoneNumber", data.phoneNumber);
     formData.append("selfDescription", data.selfDescription);
-    formData.append("candidateAvatarFile", data.candidateAvatarFile);
+    formData.append("candidateAvatarFile", selectedAvatar);
     // for (const value of formData.values()) {
     //   console.log(value);
     // }
@@ -112,9 +113,9 @@ function CandidateDetail() {
   const [show, setShow] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
 
-  const handleChange = (selectedDate) => {
-    setSelectedDate(selectedDate);
-    console.log(selectedDate);
+  const handleChange = (e) => {
+    setSelectedDate(e.target.value);
+    console.log(e.target.value);
   };
   const handleClose = (state) => {
     setShow(state);
@@ -234,12 +235,13 @@ function CandidateDetail() {
           <label htmlFor="date" className="text-base lg:text-lg font-medium">
             Ngày sinh
           </label>
-          <Datepicker
+          <input type="date" onChange={handleChange}/>
+          {/* <Datepicker
             options={options}
             onChange={handleChange}
             show={show}
             setShow={handleClose}
-          />
+          /> */}
         </div>
 
         <div className="flex flex-col gap-2">

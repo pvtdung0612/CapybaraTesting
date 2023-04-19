@@ -61,7 +61,7 @@ export default function ReportModal({ open, setOpen, companyId }) {
                                 <label className="block text-[1rem] font-medium text-gray-900 dark:text-white">
                                     Nhập phản ánh của bạn
                                 </label>
-                                <textarea value={reportMessage} onChange={(e) => setReportMessage(e.target.value)} 
+                                <textarea name="textarea_description_report" value={reportMessage} onChange={(e) => setReportMessage(e.target.value)} 
                                     className="block p-2.5 h-[10rem] w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-common_color focus:border-common_color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-hover_common_color dark:focus:border-hover_common_color"></textarea>
                             </div>
                         </div>

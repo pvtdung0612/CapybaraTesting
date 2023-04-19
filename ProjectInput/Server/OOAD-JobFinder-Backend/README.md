@@ -41,6 +41,7 @@ Ví dụ
 spring.datasource.url=jdbc:mysql://localhost:3306/jobfinder
 spring.datasource.username=root
 spring.datasource.password=12345
+upload.path=C:/Users/Administrator/.jobfinder-server
 ````
 3. Chạy class `App` `src/main/java/com.uet.jobfinder/App`
 

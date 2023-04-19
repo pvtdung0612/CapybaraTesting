@@ -95,6 +95,7 @@ export default function CandidateViewCompany() {
 
                             <div className="flex gap-4">
                                 <button
+                                    name="company_vote"
                                     onClick={onRateButtonClick}
                                     className="hover:bg-slate-600 rounded-[25px] bg-[#73a580] py-3 px-5"
                                 >
@@ -103,6 +104,7 @@ export default function CandidateViewCompany() {
                                     </span>
                                 </button>
                                 <IconButton
+                                    name="company_report"
                                     onClick={() => setOpenReport(true)}
                                     color="error"
                                     className="rounded-xl bg-[#379d70] w-[3rem] h-[3rem] inline-block"

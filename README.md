@@ -32,9 +32,9 @@ Job Finder là ứng dụng web dùng để tìm kiếm công việc cho ứng v
 ```
 - Candidates
 ```
-"email": "nguyendanghoangdao2002@gmail.com",
+"email": "phanvantiendung2002@gmail.com",
 "password": "12345678",
-"role": "Candidate"
+"role" : "Candidate"
 ```
 
 

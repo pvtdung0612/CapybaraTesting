@@ -41,12 +41,12 @@ Job Finder là ứng dụng web dùng để tìm kiếm công việc cho ứng v
 #### Backend
 Cơ sở dữ liệu
 1. Tạo một cơ sở dữ liệu mới (đặt tên tùy ý)
-2. Tạo file `application-local.properties` trong đường dẫn `src/main/resources` với nội dung. Trong đó `server_upload_path` là đường dẫn đến thư mục để lưu file của server (Tạo một thư mục trống ở đâu đó và ghi đường dẫn vào)
+2. Tạo file `application-local.properties` trong đường dẫn `src/main/resources` với nội dung. Copy tất cả logo từ thư mục CapybaraTesting/ProjectInput/Server/ServerSaveFile vào đường dẫn upload.path
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/<database_name>
 spring.datasource.username=<mysql_username>
 spring.datasource.password=<mysql_password>
-upload.path=<server_upload_path>
+upload.path=C:/Users/Administrator/.jobfinder-server
 ```
 Ví dụ
 ````

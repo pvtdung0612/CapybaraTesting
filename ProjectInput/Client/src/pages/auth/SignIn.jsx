@@ -21,6 +21,7 @@ function SignIn() {
     Authentication.login(data.email, data.password)
       .then(() => {
         const userData = Authentication.getCurrentUser();
+        toast.success("Đăng nhập thành công")
         if (userData.roles[0] === "Company") {
           navigate("/company");
         } else if (userData.roles[0] === "Admin") {

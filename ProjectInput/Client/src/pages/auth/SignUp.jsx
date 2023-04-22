@@ -3,6 +3,7 @@ import Layout from "components/layouts/background/Layout";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 function SignUp({ navigation }) {
     const {
         register,
@@ -14,38 +15,42 @@ function SignUp({ navigation }) {
 
     const navigate = useNavigate();
 
-    const onSubmit = (data) => {
-        axios({
-            method: "post",
-            url: "http://localhost:5000/api/register",
-            data: {
-                email: data.email,
-                password: data.password,
-                role: data.role,
-            },
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then((res) => {
-                if (res.data) {
-                    if (res.status === 200 || res.status === 201) {
+    // 3864: Capybara: Đăng kí
+    // const onSubmit = (data) => {
+    //     axios({
+    //         method: "post",
+    //         url: "http://localhost:5000/api/register",
+    //         data: {
+    //             email: data.email,
+    //             password: data.password,
+    //             role: data.role,
+    //         },
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     })
+    //         .then((res) => {
+    //             if (res.data) {
+    //                 if (res.status === 200 || res.status === 201) {
+    //                     toast.success("Đăng kí thành công")
 
-                        navigate("/auth/verifyemail", {
-                            state: {
-                                email: res.data.email,
-                            },
-                        });
-                        return res;
-                    }
-                    return Promise.reject(res);
-                }
-                return Promise.reject(res);
-            })
-            .catch((err) => {
-                return Promise.reject(err);
-            });
-    };
+    //                     navigate("/auth/verifyemail", {
+    //                         state: {
+    //                             email: res.data.email,
+    //                         },
+    //                     });
+    //                     return res;
+    //                 }
+    //                 return Promise.reject(res);
+    //             }
+    //             return Promise.reject(res);
+    //         })
+    //         .catch((err) => {
+    //             return Promise.reject(err);
+    //         });
+    // };
+    const onSubmit = (data) => {};
+
     useEffect(() => {
         reset({
             data: "",

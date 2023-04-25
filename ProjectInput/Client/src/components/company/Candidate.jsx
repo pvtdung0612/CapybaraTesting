@@ -111,12 +111,14 @@ function Candidate({
                 {activeOption === "Waiting" && (
                     <div className="flex h-10 gap-5 text-sm">
                         <button
+                            name="accepted"
                             className="px-2 h-full  text-white rounded-lg bg-emerald-500 hover:bg-emerald-600"
                             onClick={handleAccept}
                         >
                             Chấp nhận
                         </button>
                         <button
+                            name="rejected"
                             className="px-2 h-full rounded-lg bg-red-500 hover:bg-red-700 text-white"
                             onClick={handleReject}
                         >
